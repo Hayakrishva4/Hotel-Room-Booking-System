@@ -1,0 +1,15 @@
+# Compiled binaries and object files
+*.o
+*.out
+*.exe
+program
+hotel_system
+
+# Runtime data files
+hotel.txt
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
