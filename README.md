@@ -1,4 +1,19 @@
-|  Hotel-Room Booking System
+# Hotel Room Booking System
 
-  > It's a console based, menu-driven, C program that is used to add, view, and search Hotel rooms.
-  > It works as a Dual-User system which serves for both customers as well as hotel staffs. 
+[![C Build & CI](https://github.com/Hayakrishna4/Hotel-Room-Booking-System/actions/workflows/c.yml/badge.svg)](https://github.com/Hayakrishna4/Hotel-Room-Booking-System/actions/workflows/c.yml)
+
+A lightweight, console-based Hotel Room Booking and Management system written in standard C. Data is persistently stored in a flat file (`hotel.txt`).
+
+## Features
+
+* **Add Booking**: Record customer name, room number, and stay duration.
+* **View Bookings**: Display all active records in a formatted table.
+* **Search Booking**: Look up details by specific room number.
+* **File Persistence**: Maintains records across program restarts using file I/O.
+
+## Build and Run
+
+### Using Make
+```bash
+make
+./hotel_system
