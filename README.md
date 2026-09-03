@@ -1,7 +1,5 @@
 # Hotel Room Booking System
 
-[![C Build & CI](https://github.com/Hayakrishna4/Hotel-Room-Booking-System/actions/workflows/c.yml/badge.svg)](https://github.com/Hayakrishna4/Hotel-Room-Booking-System/actions/workflows/c.yml)
-
 A lightweight, console-based Hotel Room Booking and Management system written in standard C. Data is persistently stored in a flat file (`hotel.txt`).
 
 ## Features
