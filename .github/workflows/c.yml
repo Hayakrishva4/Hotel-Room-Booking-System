@@ -1,0 +1,32 @@
+name: C Build & CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }} with ${{ matrix.compiler }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        compiler: [gcc, clang]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Compile C Program
+        run: |
+          ${{ matrix.compiler }} -Wall -Wextra -O2 -o hotel_system std.c
+
+      - name: Upload Linux Binary
+        if: matrix.os == 'ubuntu-latest' && matrix.compiler == 'gcc'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hotel-system-linux-x64
+          path: hotel_system
