@@ -20,9 +20,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Compile C Program
+      - name: Locate Source File and Compile
         run: |
-          ${{ matrix.compiler }} -Wall -Wextra -O2 -o hotel_system std.c
+          # Find the C source file (std.c or main.c or any root/subfolder .c file)
+          SRC_FILE=$(find . -maxdepth 2 -name "*.c" | head -n 1)
+          if [ -z "$SRC_FILE" ]; then
+            echo "Error: No .c file found in the repository!"
+            exit 1
+          fi
+          echo "Found source file: $SRC_FILE"
+          ${{ matrix.compiler }} -Wall -Wextra -O2 -o hotel_system "$SRC_FILE"
 
       - name: Upload Linux Binary
         if: matrix.os == 'ubuntu-latest' && matrix.compiler == 'gcc'
